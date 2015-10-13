@@ -48,11 +48,19 @@ func addPoints(first_x : Dictionary<String, Int> = [:], first_y : Dictionary<Str
     return (first_x["x"]! + second_x["x"]!, first_y["y"]! + second_y["y"]!);
 }
 
+func addPoints(first_x : Dictionary<String, Double> = [:], first_y : Dictionary<String, Double> = [:], second_x : Dictionary<String, Double> = [:], second_y : Dictionary<String, Double> = [:]) -> (Double, Double) {
+    return (first_x["x"]! + second_x["x"]!, first_y["y"]! + second_y["y"]!);
+}
+
 func subtractPoints(first_point : (Int, Int), second_point : (Int, Int)) -> (Int, Int) {
     return (first_point.0 - second_point.0, first_point.1 - second_point.1);
 }
 
 func subtractPoints(first_x : Dictionary<String, Int> = [:], first_y : Dictionary<String, Int> = [:], second_x : Dictionary<String, Int> = [:], second_y : Dictionary<String, Int> = [:]) -> (Int, Int) {
+    return (first_x["x"]! - second_x["x"]!, first_y["y"]! - second_y["y"]!);
+}
+
+func subtractPoints(first_x : Dictionary<String, Double> = [:], first_y : Dictionary<String, Double> = [:], second_x : Dictionary<String, Double> = [:], second_y : Dictionary<String, Double> = [:]) -> (Double, Double) {
     return (first_x["x"]! - second_x["x"]!, first_y["y"]! - second_y["y"]!);
 }
 
@@ -136,6 +144,8 @@ print("Adding (-2, 3) to (4, -5): \(addPoints((-2, 3), second_point: (4, -5)))")
 answer = addPoints(["x":-2], first_y: ["y":3], second_x: ["x":4], second_y: ["y":-5])
 print("Adding (-2, 3) to (4, -5): \(answer)");
 print("Adding (-2, -3) to (-4, -5): \(addPoints((-2, -3), second_point: (-4, -5)))");
+var other_answer = addPoints(["x":2.0], first_y: ["y":3.4], second_x: ["x":4.7], second_y: ["y":-5.2])
+print("Adding (2.0, 3.4) to (4.7, -5.2): \(other_answer)");
 
 print("");
 
@@ -145,6 +155,8 @@ print("Subtracting (2, 3) to (4, 5): \(subtractPoints((2, 3), second_point: (4, 
 answer = subtractPoints(["x":2], first_y: ["y":3], second_x: ["x":4], second_y: ["y":5])
 print("subtracting (2, 3) to (4, 5): \(answer)");
 print("Subtracting (-2, 3) to (4, -5): \(subtractPoints((-2, 3), second_point: (4, -5)))");
-answer = subtractPoints(["x":-2], first_y: ["y":3], second_x: ["x":4], second_y: ["y":-5])
+answer = subtractPoints(["x":2], first_y: ["y":3], second_x: ["x":4], second_y: ["y":-5])
 print("subtracting (2, 3) to (4, 5): \(answer)");
 print("Subtracting (-2, -3) to (-4, -5): \(subtractPoints((-2, -3), second_point: (-4, -5)))");
+other_answer = subtractPoints(["x":2.0], first_y: ["y":3.4], second_x: ["x":4.7], second_y: ["y":-5.2])
+print("subtracting (2.0, 3.4) to (4.7, -5.2): \(other_answer)");
