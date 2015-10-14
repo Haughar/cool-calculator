@@ -45,11 +45,29 @@ func addPoints(first_point : (Int, Int), second_point : (Int, Int)) -> (Int, Int
 }
 
 func addPoints(first_x : Dictionary<String, Int> = [:], first_y : Dictionary<String, Int> = [:], second_x : Dictionary<String, Int> = [:], second_y : Dictionary<String, Int> = [:]) -> (Int, Int) {
-    return (first_x["x"]! + second_x["x"]!, first_y["y"]! + second_y["y"]!);
+    if let _ = first_x["x"] {
+        if let _ = first_y["y"] {
+            if let _ = second_x["x"] {
+                if let _ = second_y["y"] {
+                    return (first_x["x"]! + second_x["x"]!, first_y["y"]! + second_y["y"]!);
+                }
+            }
+        }
+    }
+    return (-1000000, -1000000);
 }
 
 func addPoints(first_x : Dictionary<String, Double> = [:], first_y : Dictionary<String, Double> = [:], second_x : Dictionary<String, Double> = [:], second_y : Dictionary<String, Double> = [:]) -> (Double, Double) {
-    return (first_x["x"]! + second_x["x"]!, first_y["y"]! + second_y["y"]!);
+    if let _ = first_x["x"] {
+        if let _ = first_y["y"] {
+            if let _ = second_x["x"] {
+                if let _ = second_y["y"] {
+                    return (first_x["x"]! + second_x["x"]!, first_y["y"]! + second_y["y"]!);
+                }
+            }
+        }
+    }
+    return (-1000000, -1000000);
 }
 
 func subtractPoints(first_point : (Int, Int), second_point : (Int, Int)) -> (Int, Int) {
@@ -57,11 +75,29 @@ func subtractPoints(first_point : (Int, Int), second_point : (Int, Int)) -> (Int
 }
 
 func subtractPoints(first_x : Dictionary<String, Int> = [:], first_y : Dictionary<String, Int> = [:], second_x : Dictionary<String, Int> = [:], second_y : Dictionary<String, Int> = [:]) -> (Int, Int) {
-    return (first_x["x"]! - second_x["x"]!, first_y["y"]! - second_y["y"]!);
+    if let _ = first_x["x"] {
+        if let _ = first_y["y"] {
+            if let _ = second_x["x"] {
+                if let _ = second_y["y"] {
+                    return (first_x["x"]! - second_x["x"]!, first_y["y"]! - second_y["y"]!);
+                }
+            }
+        }
+    }
+    return (-1000000, -1000000);
 }
 
 func subtractPoints(first_x : Dictionary<String, Double> = [:], first_y : Dictionary<String, Double> = [:], second_x : Dictionary<String, Double> = [:], second_y : Dictionary<String, Double> = [:]) -> (Double, Double) {
-    return (first_x["x"]! - second_x["x"]!, first_y["y"]! - second_y["y"]!);
+    if let _ = first_x["x"] {
+        if let _ = first_y["y"] {
+            if let _ = second_x["x"] {
+                if let _ = second_y["y"] {
+                    return (first_x["x"]! - second_x["x"]!, first_y["y"]! - second_y["y"]!);
+                }
+            }
+        }
+    }
+    return (-1000000, -1000000);
 }
 
 // Test code:
@@ -160,3 +196,5 @@ print("subtracting (2, 3) to (4, 5): \(answer)");
 print("Subtracting (-2, -3) to (-4, -5): \(subtractPoints((-2, -3), second_point: (-4, -5)))");
 other_answer = subtractPoints(["x":2.0], first_y: ["y":3.4], second_x: ["x":4.7], second_y: ["y":-5.2])
 print("subtracting (2.0, 3.4) to (4.7, -5.2): \(other_answer)");
+other_answer = subtractPoints(["x":2.0], first_y: ["z":3], second_x: ["x":4.7], second_y: ["y":-5.2])
+print("Proving that it can hadle nil case: \(other_answer)");
